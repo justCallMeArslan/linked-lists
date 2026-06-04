@@ -37,19 +37,6 @@ export function LinkedList() {
 
 
 
-    function toString() {
-        let current = start;
-        let result = ""; // to collect all nodes into string
-
-        while (current !== null) {  // iterate  while not a null (end of list)
-            result += `(${current.value}) -> `; // add current value to string and
-            current = current.nextNode; // move to next node
-        }
-
-        return result + "null"; // return result string and "null" for conventions
-    }
-
-
     function size() {
 
         let current = start;
@@ -76,16 +63,71 @@ export function LinkedList() {
     }
 
 
+    function head() {
+
+        if (start === null) {
+            return undefined;
+        }
+
+        return start.value;
+
+    }
+
+    function tail() {
+
+        if (start === null) {
+            return undefined;
+        }
+
+        let current = start;
+
+        while (current.nextNode !== null) {
+            current = current.nextNode;
+        }
+
+        return current.value
+    }
+
+
+    function at(index) {
+        let current = start;
+        let i = 0
+
+        while (current !== null) {
+            if (i === index) return current.value;
+            current = current.nextNode;
+            i++;
+        }
+
+        return undefined;
+    }
 
 
 
 
 
 
+    function toString() {
+        let current = start;
+        let result = ""; // to collect all nodes into string
+
+        while (current !== null) {  // iterate  while not a null (end of list)
+            result += `(${current.value}) -> `; // add current value to string and
+            current = current.nextNode; // move to next node
+        }
+
+        return result + "null"; // return result string and "null" for conventions
+    }
 
 
     return {
-        append, toString, prepend, size
+        append,
+        prepend,
+        size,
+        head,
+        tail,
+        at,
+        toString
     }
 
 }
