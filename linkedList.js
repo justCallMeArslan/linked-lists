@@ -27,6 +27,14 @@ export function LinkedList() {
         current.nextNode = newNode; // links last node to the new mode
     }
 
+    function prepend(value) {
+        const newNode = Node(value);
+
+        newNode.nextNode = start; //new node aligns with current first node
+        start = newNode; // updating start so new mode will become first element/
+        // node
+    }
+
 
 
     function toString() {
@@ -41,12 +49,44 @@ export function LinkedList() {
         return result + "null"; // return result string and "null" for conventions
     }
 
-    return {
-        append, toString
+
+    function size() {
+
+        let current = start;
+
+        //array way (store value and count them)
+        // let result = [];
+
+        // while (current !== null) {
+        //     result.push(current.value);
+        //     current = current.nextNode;
+        // }
+
+        // return result.length;
+
+        // counter way (count visited through iteration nodes)
+        let count = 0;
+
+        while (current !== null) {
+            count++;
+            current = current.nextNode;
+        }
+
+        return count;
     }
 
 
 
+
+
+
+
+
+
+
+    return {
+        append, toString, prepend, size
+    }
 
 }
 

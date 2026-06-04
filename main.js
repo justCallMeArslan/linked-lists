@@ -8,4 +8,10 @@ elves.append("Galadriel'");
 elves.append("Elrond");
 elves.append("Arwen");
 
+elves.prepend("Gandalf");
+
+
+
+console.log(elves.size());
+
 console.log(elves.toString());
