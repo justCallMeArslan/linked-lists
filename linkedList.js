@@ -35,8 +35,6 @@ export function LinkedList() {
         // node
     }
 
-
-
     function size() {
 
         let current = start;
@@ -61,7 +59,6 @@ export function LinkedList() {
 
         return count;
     }
-
 
     function head() {
 
@@ -88,7 +85,6 @@ export function LinkedList() {
         return current.value
     }
 
-
     function at(index) {
         let current = start;
         let i = 0
@@ -102,9 +98,42 @@ export function LinkedList() {
         return undefined;
     }
 
+    function pop() {
 
+        if (start === null) {
+            return undefined;
+        }
 
+        const startElValue = start.value;
+        start = start.nextNode;
 
+        return startElValue
+    }
+
+    function contains(value) {
+        let current = start;
+
+        while (current !== null) { // looping trough 
+            if (current.value === value) {
+                return true;
+            }
+            current = current.nextNode;
+        }
+        return false;
+    }
+
+    function findIndex(value) {
+        let current = start;
+        let i = 0;
+        while (current !== null) {
+            if (current.value === value) {
+                return i;
+            }
+            current = current.nextNode;
+            i++;
+        }
+        return -1;
+    }
 
 
     function toString() {
@@ -127,6 +156,9 @@ export function LinkedList() {
         head,
         tail,
         at,
+        pop,
+        contains,
+        findIndex,
         toString
     }
 
